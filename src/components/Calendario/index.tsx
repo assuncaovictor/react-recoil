@@ -3,10 +3,9 @@ import style from "./Calendario.module.scss";
 import ptBR from "./localizacao/ptBR.json";
 import Kalend, { CalendarEvent, CalendarView, OnEventDragFinish } from "kalend";
 import "kalend/dist/styles/index.css";
-import { useRecoilValue } from "recoil";
-import { recoilEventos } from "../../state/atom";
-import { IEvento } from "../../interfaces/IEvento";
 import useAtualizarEvento from "../../state/hooks/useAtualizarEvento";
+import useEventosFiltrados from "../../state/hooks/useEventosFiltrados";
+import { IEvento } from "../../interfaces/IEvento";
 
 interface IKalendEvento {
 	id?: number;
@@ -17,7 +16,7 @@ interface IKalendEvento {
 }
 
 const Calendario: React.FC = () => {
-	const eventos = useRecoilValue(recoilEventos);
+	const eventos = useEventosFiltrados();
 	const atulizarEvento = useAtualizarEvento();
 
 	const eventosKalend = new Map<string, IKalendEvento[]>();
