@@ -2,10 +2,10 @@ import React from "react";
 import Evento from "../Evento";
 import Filtro from "../Filtro";
 import style from "./ListaDeEventos.module.scss";
-import useEventosFiltrados from "../../state/hooks/useEventosFiltrados";
+import useRecoilEventos from "../../state/hooks/useRecoilEventos";
 
 const ListaDeEventos: React.FC = () => {
-	const eventos = useEventosFiltrados();
+	const { eventos } = useRecoilEventos();
 
 	return (
 		<section>
